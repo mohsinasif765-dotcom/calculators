@@ -39,6 +39,7 @@ export default function HomePage() {
       description: 'Calculate GST inclusive and exclusive amounts',
       icon: FileText,
       category: 'Tax',
+      comingSoon: true,
       gradient: 'from-orange-500 to-red-500',
     },
     {
@@ -87,6 +88,7 @@ export default function HomePage() {
       description: 'Calculate take-home salary after tax deductions',
       icon: Wallet,
       category: 'Finance',
+      comingSoon: true,
       gradient: 'from-cyan-500 to-blue-500',
     },
     {
@@ -197,45 +199,51 @@ export default function HomePage() {
           >
             {calculators.map((calc) => {
               const Icon = calc.icon;
+              const card = (
+                <motion.div
+                  whileHover={{ y: -8, scale: 1.02 }}
+                  transition={{ type: 'spring', stiffness: 300 }}
+                  className={`group relative bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all border border-slate-100 overflow-hidden ${calc.comingSoon ? 'opacity-70 pointer-events-none' : ''}`}
+                >
+                  {/* Gradient Overlay on Hover */}
+                  <div className={`absolute inset-0 bg-gradient-to-br ${calc.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300`} />
+                  
+                  {/* Category Badge */}
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="px-3 py-1 rounded-full bg-slate-100 text-slate-600 text-xs">
+                      {calc.category}
+                    </span>
+                    <motion.div
+                      whileHover={{ rotate: 360 }}
+                      transition={{ duration: 0.6 }}
+                      className={`w-12 h-12 rounded-xl bg-gradient-to-br ${calc.gradient} flex items-center justify-center shadow-lg`}
+                    >
+                      <Icon className="w-6 h-6 text-white" />
+                    </motion.div>
+                  </div>
+
+                  <h3 className="mb-2 text-slate-900 group-hover:text-blue-600 transition-colors">
+                    {calc.name}
+                  </h3>
+                  
+                  <p className="text-slate-600 mb-4">
+                    {calc.description}
+                  </p>
+
+                  {calc.comingSoon && (
+                    <div className="absolute top-4 right-4 px-2 py-1 bg-amber-400 text-white rounded-md text-xs font-medium">Coming soon</div>
+                  )}
+
+                  <div className="flex items-center gap-2 text-blue-600 group-hover:gap-3 transition-all">
+                    <span>{calc.comingSoon ? 'Coming soon' : 'Calculate now'}</span>
+                    {!calc.comingSoon && <ArrowRight className="w-4 h-4" />}
+                  </div>
+                </motion.div>
+              );
+
               return (
                 <motion.div key={calc.path} variants={item}>
-                  <Link to={calc.path}>
-                    <motion.div
-                      whileHover={{ y: -8, scale: 1.02 }}
-                      transition={{ type: 'spring', stiffness: 300 }}
-                      className="group relative bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all border border-slate-100 overflow-hidden"
-                    >
-                      {/* Gradient Overlay on Hover */}
-                      <div className={`absolute inset-0 bg-gradient-to-br ${calc.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300`} />
-                      
-                      {/* Category Badge */}
-                      <div className="flex items-center justify-between mb-4">
-                        <span className="px-3 py-1 rounded-full bg-slate-100 text-slate-600 text-xs">
-                          {calc.category}
-                        </span>
-                        <motion.div
-                          whileHover={{ rotate: 360 }}
-                          transition={{ duration: 0.6 }}
-                          className={`w-12 h-12 rounded-xl bg-gradient-to-br ${calc.gradient} flex items-center justify-center shadow-lg`}
-                        >
-                          <Icon className="w-6 h-6 text-white" />
-                        </motion.div>
-                      </div>
-
-                      <h3 className="mb-2 text-slate-900 group-hover:text-blue-600 transition-colors">
-                        {calc.name}
-                      </h3>
-                      
-                      <p className="text-slate-600 mb-4">
-                        {calc.description}
-                      </p>
-
-                      <div className="flex items-center gap-2 text-blue-600 group-hover:gap-3 transition-all">
-                        <span>Calculate now</span>
-                        <ArrowRight className="w-4 h-4" />
-                      </div>
-                    </motion.div>
-                  </Link>
+                  {calc.comingSoon ? card : <Link to={calc.path}>{card}</Link>}
                 </motion.div>
               );
             })}

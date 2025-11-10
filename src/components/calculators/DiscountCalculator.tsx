@@ -1,15 +1,9 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
-import { Tag, IndianRupee, DollarSign, Euro, PoundSterling } from 'lucide-react';
+import { Tag } from 'lucide-react';
 import { Slider } from '../ui/slider';
 import CalculatorLayout from './CalculatorLayout';
-
-const currencies = [
-  { code: 'USD', symbol: '$', name: 'US Dollar', icon: DollarSign },
-  { code: 'INR', symbol: '₹', name: 'Indian Rupee', icon: IndianRupee },
-  { code: 'EUR', symbol: '€', name: 'Euro', icon: Euro },
-  { code: 'GBP', symbol: '£', name: 'British Pound', icon: PoundSterling },
-];
+import CurrencySelect, { currencies } from '../ui/CurrencySelect';
 
 export default function DiscountCalculator() {
   const [currency, setCurrency] = useState(currencies[0]);
@@ -45,29 +39,7 @@ export default function DiscountCalculator() {
       {/* Currency Selector */}
       <div>
         <label className="block mb-3 text-slate-700">Select Currency</label>
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
-          {currencies.map((curr) => {
-            const Icon = curr.icon;
-            return (
-              <motion.button
-                key={curr.code}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={() => setCurrency(curr)}
-                className={`p-3 rounded-xl border-2 transition-all ${
-                  currency.code === curr.code
-                    ? 'border-yellow-500 bg-gradient-to-br from-yellow-50 to-orange-50 shadow-md'
-                    : 'border-slate-200 hover:border-yellow-300'
-                }`}
-              >
-                <div className="flex items-center gap-2">
-                  <Icon className="w-4 h-4 text-slate-600" />
-                  <span className="text-sm">{curr.code}</span>
-                </div>
-              </motion.button>
-            );
-          })}
-        </div>
+        <CurrencySelect value={currency} onChange={setCurrency} />
       </div>
 
       {/* Original Price */}
@@ -80,7 +52,7 @@ export default function DiscountCalculator() {
         </div>
         <Slider
           value={[originalPrice]}
-          onValueChange={(value) => setOriginalPrice(value[0])}
+          onValueChange={(value: number[]) => setOriginalPrice(value[0])}
           min={1}
           max={10000}
           step={1}
@@ -102,7 +74,7 @@ export default function DiscountCalculator() {
         </div>
         <Slider
           value={[discountPercent]}
-          onValueChange={(value) => setDiscountPercent(value[0])}
+          onValueChange={(value: number[]) => setDiscountPercent(value[0])}
           min={1}
           max={90}
           step={1}

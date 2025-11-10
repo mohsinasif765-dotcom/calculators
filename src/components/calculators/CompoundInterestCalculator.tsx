@@ -1,17 +1,9 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
-import { TrendingUp, IndianRupee, DollarSign, Euro, PoundSterling } from 'lucide-react';
+import { TrendingUp } from 'lucide-react';
 import { Slider } from '../ui/slider';
 import CalculatorLayout from './CalculatorLayout';
-
-const currencies = [
-  { code: 'USD', symbol: '$', name: 'US Dollar', icon: DollarSign },
-  { code: 'INR', symbol: '₹', name: 'Indian Rupee', icon: IndianRupee },
-  { code: 'EUR', symbol: '€', name: 'Euro', icon: Euro },
-  { code: 'GBP', symbol: '£', name: 'British Pound', icon: PoundSterling },
-  { code: 'AUD', symbol: 'A$', name: 'Australian Dollar', icon: DollarSign },
-  { code: 'CAD', symbol: 'C$', name: 'Canadian Dollar', icon: DollarSign },
-];
+import CurrencySelect, { currencies } from '../ui/CurrencySelect';
 
 const compoundingFrequencies = [
   { value: 1, label: 'Annually' },
@@ -56,29 +48,7 @@ export default function CompoundInterestCalculator() {
       {/* Currency Selector */}
       <div>
         <label className="block mb-3 text-slate-700">Select Currency</label>
-        <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
-          {currencies.map((curr) => {
-            const Icon = curr.icon;
-            return (
-              <motion.button
-                key={curr.code}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={() => setCurrency(curr)}
-                className={`p-3 rounded-xl border-2 transition-all ${
-                  currency.code === curr.code
-                    ? 'border-violet-500 bg-gradient-to-br from-violet-50 to-purple-50 shadow-md'
-                    : 'border-slate-200 hover:border-violet-300'
-                }`}
-              >
-                <div className="flex items-center gap-2">
-                  <Icon className="w-4 h-4 text-slate-600" />
-                  <span className="text-sm">{curr.code}</span>
-                </div>
-              </motion.button>
-            );
-          })}
-        </div>
+        <CurrencySelect value={currency} onChange={setCurrency} />
       </div>
 
       {/* Principal Amount */}
@@ -91,7 +61,7 @@ export default function CompoundInterestCalculator() {
         </div>
         <Slider
           value={[principal]}
-          onValueChange={(value) => setPrincipal(value[0])}
+          onValueChange={(value: number[]) => setPrincipal(value[0])}
           min={1000}
           max={1000000}
           step={1000}
@@ -113,7 +83,7 @@ export default function CompoundInterestCalculator() {
         </div>
         <Slider
           value={[rate]}
-          onValueChange={(value) => setRate(value[0])}
+          onValueChange={(value: number[]) => setRate(value[0])}
           min={1}
           max={20}
           step={0.25}
@@ -135,7 +105,7 @@ export default function CompoundInterestCalculator() {
         </div>
         <Slider
           value={[time]}
-          onValueChange={(value) => setTime(value[0])}
+          onValueChange={(value: number[]) => setTime(value[0])}
           min={1}
           max={30}
           step={1}

@@ -116,7 +116,7 @@ export default function BMICalculator() {
             </div>
             <Slider
               value={[weight]}
-              onValueChange={(value) => setWeight(value[0])}
+              onValueChange={(value: number[]) => setWeight(value[0])}
               min={30}
               max={200}
               step={0.5}
@@ -138,7 +138,7 @@ export default function BMICalculator() {
             </div>
             <Slider
               value={[heightCm]}
-              onValueChange={(value) => setHeightCm(value[0])}
+              onValueChange={(value: number[]) => setHeightCm(value[0])}
               min={100}
               max={250}
               step={1}
@@ -162,7 +162,7 @@ export default function BMICalculator() {
             </div>
             <Slider
               value={[weight]}
-              onValueChange={(value) => setWeight(value[0])}
+              onValueChange={(value: number[]) => setWeight(value[0])}
               min={66}
               max={440}
               step={1}
@@ -184,7 +184,7 @@ export default function BMICalculator() {
             </div>
             <Slider
               value={[heightFt]}
-              onValueChange={(value) => setHeightFt(value[0])}
+              onValueChange={(value: number[]) => setHeightFt(value[0])}
               min={3}
               max={8}
               step={1}
@@ -206,7 +206,7 @@ export default function BMICalculator() {
             </div>
             <Slider
               value={[heightIn]}
-              onValueChange={(value) => setHeightIn(value[0])}
+              onValueChange={(value: number[]) => setHeightIn(value[0])}
               min={0}
               max={11}
               step={1}

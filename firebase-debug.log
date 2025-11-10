@@ -1,0 +1,137 @@
+[debug] [2025-11-10T16:40:10.088Z] ----------------------------------------------------------------------
+[debug] [2025-11-10T16:40:10.096Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\MS\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2025-11-10T16:40:10.097Z] CLI Version:   14.24.1
+[debug] [2025-11-10T16:40:10.097Z] Platform:      win32
+[debug] [2025-11-10T16:40:10.098Z] Node Version:  v22.21.0
+[debug] [2025-11-10T16:40:10.099Z] Time:          Mon Nov 10 2025 21:40:10 GMT+0500 (Pakistan Standard Time)
+[debug] [2025-11-10T16:40:10.099Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2025-11-10T16:40:10.107Z] >>> [apiv2][query] GET https://firebase-public.firebaseio.com/cli.json [none]
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  E:\flutter_dev\projects\calculators
+
+[debug] [2025-11-10T16:40:11.937Z] <<< [apiv2][status] GET https://firebase-public.firebaseio.com/cli.json 200
+[debug] [2025-11-10T16:40:11.938Z] <<< [apiv2][body] GET https://firebase-public.firebaseio.com/cli.json {"cloudBuildErrorAfter":1594252800000,"cloudBuildWarnAfter":1590019200000,"defaultNode10After":1594252800000,"minVersion":"3.0.5","node8DeploysDisabledAfter":1613390400000,"node8RuntimeDisabledAfter":1615809600000,"node8WarnAfter":1600128000000}
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] 
+[info] i  If you want to create a project in a Google Cloud organization or folder, please use "firebase projects:create" instead, and return to this command when you've created the project. 
+[debug] [2025-11-10T16:42:40.236Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-11-10T16:42:40.237Z] > authorizing via signed-in user (mohsinasif765@gmail.com)
+[debug] [2025-11-10T16:43:13.623Z] Checked if tokens are valid: false, expires at: 1761805497704
+[debug] [2025-11-10T16:43:13.624Z] Checked if tokens are valid: false, expires at: 1761805497704
+[debug] [2025-11-10T16:43:13.624Z] > refreshing access token with scopes: []
+[debug] [2025-11-10T16:43:13.628Z] >>> [apiv2][query] POST https://www.googleapis.com/oauth2/v3/token [none]
+[debug] [2025-11-10T16:43:13.628Z] >>> [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-11-10T16:43:14.303Z] <<< [apiv2][status] POST https://www.googleapis.com/oauth2/v3/token 200
+[debug] [2025-11-10T16:43:14.303Z] <<< [apiv2][body] POST https://www.googleapis.com/oauth2/v3/token [omitted]
+[debug] [2025-11-10T16:43:14.339Z] >>> [apiv2][query] POST https://firebase.googleapis.com/v1/projects:checkProjectId [none]
+[debug] [2025-11-10T16:43:14.340Z] >>> [apiv2][body] POST https://firebase.googleapis.com/v1/projects:checkProjectId {"proposedId":"calpro"}
+[debug] [2025-11-10T16:43:15.154Z] <<< [apiv2][status] POST https://firebase.googleapis.com/v1/projects:checkProjectId 200
+[debug] [2025-11-10T16:43:15.154Z] <<< [apiv2][body] POST https://firebase.googleapis.com/v1/projects:checkProjectId {"projectIdStatus":"PROJECT_ID_UNAVAILABLE","suggestedProjectId":"calpro-e5a43"}
+[debug] [2025-11-10T16:43:33.362Z] Checked if tokens are valid: true, expires at: 1762796593303
+[debug] [2025-11-10T16:43:33.362Z] Checked if tokens are valid: true, expires at: 1762796593303
+[debug] [2025-11-10T16:43:33.365Z] >>> [apiv2][query] POST https://firebase.googleapis.com/v1/projects:checkProjectId [none]
+[debug] [2025-11-10T16:43:33.366Z] >>> [apiv2][body] POST https://firebase.googleapis.com/v1/projects:checkProjectId {"proposedId":"calproo"}
+[debug] [2025-11-10T16:43:34.258Z] <<< [apiv2][status] POST https://firebase.googleapis.com/v1/projects:checkProjectId 200
+[debug] [2025-11-10T16:43:34.259Z] <<< [apiv2][body] POST https://firebase.googleapis.com/v1/projects:checkProjectId {"projectIdStatus":"PROJECT_ID_UNAVAILABLE","suggestedProjectId":"calproo-46a40"}
+[debug] [2025-11-10T16:43:52.248Z] Checked if tokens are valid: true, expires at: 1762796593303
+[debug] [2025-11-10T16:43:52.249Z] Checked if tokens are valid: true, expires at: 1762796593303
+[debug] [2025-11-10T16:43:52.251Z] >>> [apiv2][query] POST https://firebase.googleapis.com/v1/projects:checkProjectId [none]
+[debug] [2025-11-10T16:43:52.252Z] >>> [apiv2][body] POST https://firebase.googleapis.com/v1/projects:checkProjectId {"proposedId":"calpro-786"}
+[debug] [2025-11-10T16:43:53.646Z] <<< [apiv2][status] POST https://firebase.googleapis.com/v1/projects:checkProjectId 200
+[debug] [2025-11-10T16:43:53.647Z] <<< [apiv2][body] POST https://firebase.googleapis.com/v1/projects:checkProjectId {"projectIdStatus":"PROJECT_ID_AVAILABLE","suggestedProjectId":"calpro-786"}
+[debug] [2025-11-10T16:44:03.817Z] Checked if tokens are valid: true, expires at: 1762796593303
+[debug] [2025-11-10T16:44:03.818Z] Checked if tokens are valid: true, expires at: 1762796593303
+[debug] [2025-11-10T16:44:03.818Z] >>> [apiv2][query] POST https://cloudresourcemanager.googleapis.com/v1/projects [none]
+[debug] [2025-11-10T16:44:03.819Z] >>> [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects {"projectId":"calpro-786","name":"calpro-786"}
+[debug] [2025-11-10T16:44:06.049Z] <<< [apiv2][status] POST https://cloudresourcemanager.googleapis.com/v1/projects 200
+[debug] [2025-11-10T16:44:06.049Z] <<< [apiv2][body] POST https://cloudresourcemanager.googleapis.com/v1/projects {"name":"operations/create_project.global.5295405678104886671"}
+[debug] [2025-11-10T16:44:06.054Z] Checked if tokens are valid: true, expires at: 1762796593303
+[debug] [2025-11-10T16:44:06.055Z] Checked if tokens are valid: true, expires at: 1762796593303
+[debug] [2025-11-10T16:44:06.056Z] >>> [apiv2][query] GET https://cloudresourcemanager.googleapis.com/v1/operations/create_project.global.5295405678104886671 [none]
+[debug] [2025-11-10T16:44:07.469Z] <<< [apiv2][status] GET https://cloudresourcemanager.googleapis.com/v1/operations/create_project.global.5295405678104886671 200
+[debug] [2025-11-10T16:44:07.470Z] <<< [apiv2][body] GET https://cloudresourcemanager.googleapis.com/v1/operations/create_project.global.5295405678104886671 {"name":"operations/create_project.global.5295405678104886671","metadata":{"@type":"type.googleapis.com/google.cloudresourcemanager.v1.ProjectCreationStatus","ready":true},"done":true,"error":{"code":8,"message":"The project cannot be created because you have exceeded your allotted project quota.","details":[{"@type":"type.googleapis.com/google.rpc.QuotaFailure","violations":[{"description":"The project cannot be created because you have exceeded your allotted project quota."}]}]}}
+[debug] [2025-11-10T16:44:07.883Z] FirebaseError: The project cannot be created because you have exceeded your allotted project quota.
+    at OperationPoller.poll (C:\Users\MS\AppData\Roaming\npm\node_modules\firebase-tools\lib\operation-poller.js:24:19)
+    at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+    at async createCloudProject (C:\Users\MS\AppData\Roaming\npm\node_modules\firebase-tools\lib\management\projects.js:227:29)
+    at async createFirebaseProjectAndLog (C:\Users\MS\AppData\Roaming\npm\node_modules\firebase-tools\lib\management\projects.js:87:9)
+    at async Object.doSetup (C:\Users\MS\AppData\Roaming\npm\node_modules\firebase-tools\lib\init\features\project.js:65:24)
+    at async init (C:\Users\MS\AppData\Roaming\npm\node_modules\firebase-tools\lib\init\index.js:77:13)
+    at async Command.initAction [as actionFn] (C:\Users\MS\AppData\Roaming\npm\node_modules\firebase-tools\lib\commands\init.js:217:5)
+[error] 
+[error] Error: Failed to create project. See firebase-debug.log for more info.
+[debug] [2025-11-10T16:44:47.841Z] ----------------------------------------------------------------------
+[debug] [2025-11-10T16:44:47.861Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\MS\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js init
+[debug] [2025-11-10T16:44:47.862Z] CLI Version:   14.24.1
+[debug] [2025-11-10T16:44:47.862Z] Platform:      win32
+[debug] [2025-11-10T16:44:47.863Z] Node Version:  v22.21.0
+[debug] [2025-11-10T16:44:47.865Z] Time:          Mon Nov 10 2025 21:44:47 GMT+0500 (Pakistan Standard Time)
+[debug] [2025-11-10T16:44:47.865Z] ----------------------------------------------------------------------
+[debug] 
+[info] 
+     ######## #### ########  ######## ########     ###     ######  ########
+     ##        ##  ##     ## ##       ##     ##  ##   ##  ##       ##
+     ######    ##  ########  ######   ########  #########  ######  ######
+     ##        ##  ##    ##  ##       ##     ## ##     ##       ## ##
+     ##       #### ##     ## ######## ########  ##     ##  ######  ########
+
+You're about to initialize a Firebase project in this directory:
+
+  E:\flutter_dev\projects\calculators
+
+[info] 
+=== Project Setup
+[info] 
+[info] First, let's associate this project directory with a Firebase project.
+[info] You can create multiple project aliases by running firebase use --add, 
+[info] 
+[debug] [2025-11-10T16:45:20.624Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2025-11-10T16:45:20.626Z] > authorizing via signed-in user (mohsinasif765@gmail.com)
+[debug] [2025-11-10T16:45:20.632Z] Checked if tokens are valid: true, expires at: 1762796593303
+[debug] [2025-11-10T16:45:20.633Z] Checked if tokens are valid: true, expires at: 1762796593303
+[debug] [2025-11-10T16:45:20.636Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects pageSize=100
+[debug] [2025-11-10T16:45:21.836Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects 200
+[debug] [2025-11-10T16:45:21.837Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects [omitted]
+[info] 
+=== Hosting Setup
+[debug] [2025-11-10T16:45:33.414Z] Checked if tokens are valid: true, expires at: 1762796593303
+[debug] [2025-11-10T16:45:33.414Z] Checked if tokens are valid: true, expires at: 1762796593303
+[debug] [2025-11-10T16:45:33.415Z] >>> [apiv2][query] GET https://firebase.googleapis.com/v1beta1/projects/studio-3481460767-eb2bc [none]
+[debug] [2025-11-10T16:45:34.163Z] <<< [apiv2][status] GET https://firebase.googleapis.com/v1beta1/projects/studio-3481460767-eb2bc 200
+[debug] [2025-11-10T16:45:34.164Z] <<< [apiv2][body] GET https://firebase.googleapis.com/v1beta1/projects/studio-3481460767-eb2bc {"projectId":"studio-3481460767-eb2bc","projectNumber":"340964092131","displayName":"Firebase app","name":"projects/studio-3481460767-eb2bc","resources":{"hostingSite":"studio-3481460767-eb2bc"},"state":"ACTIVE","etag":"1_8d3278c3-79db-41e5-b384-0e36e1f34ebc"}
+[info] 
+[info] Your public directory is the folder (relative to your project directory) that
+[info] will contain Hosting assets to be uploaded with firebase deploy. If you
+[info] have a build process for your assets, use your build's output directory.
+[info] 
+[info] 
+[info] i  Detected a .git folder at E:\flutter_dev\projects\calculators 
+[info] i  Authorizing with GitHub to upload your service account to a GitHub repository's secrets store. 
+[info] 
+[info] Visit this URL on this device to log in:
+[info] https://github.com/login/oauth/authorize?client_id=89cf50f02ac6aaed3484&state=510383826&redirect_uri=http%3A%2F%2Flocalhost%3A9005&scope=read%3Auser%20repo%20public_repo
+[info] 
+[info] Waiting for authentication...
+[debug] [2025-11-10T16:51:11.353Z] >>> [apiv2][query] POST https://github.com/login/oauth/access_token [none]
+[debug] [2025-11-10T16:51:11.356Z] >>> [apiv2][body] POST https://github.com/login/oauth/access_token [stream]
+[debug] [2025-11-10T16:51:12.350Z] <<< [apiv2][status] POST https://github.com/login/oauth/access_token 200
+[debug] [2025-11-10T16:51:12.351Z] <<< [apiv2][body] POST https://github.com/login/oauth/access_token {"access_token":"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","token_type":"bearer","scope":"read:user,repo"}
+[debug] [2025-11-10T16:51:12.389Z] >>> [apiv2][query] GET https://api.github.com/user [none]
+[debug] [2025-11-10T16:51:13.368Z] <<< [apiv2][status] GET https://api.github.com/user 200
+[debug] [2025-11-10T16:51:13.368Z] <<< [apiv2][body] GET https://api.github.com/user {"login":"mohsinasif765-dotcom","id":239746728,"node_id":"U_kgDODko-qA","avatar_url":"https://avatars.githubusercontent.com/u/239746728?v=4","gravatar_id":"","url":"https://api.github.com/users/mohsinasif765-dotcom","html_url":"https://github.com/mohsinasif765-dotcom","followers_url":"https://api.github.com/users/mohsinasif765-dotcom/followers","following_url":"https://api.github.com/users/mohsinasif765-dotcom/following{/other_user}","gists_url":"https://api.github.com/users/mohsinasif765-dotcom/gists{/gist_id}","starred_url":"https://api.github.com/users/mohsinasif765-dotcom/starred{/owner}{/repo}","subscriptions_url":"https://api.github.com/users/mohsinasif765-dotcom/subscriptions","organizations_url":"https://api.github.com/users/mohsinasif765-dotcom/orgs","repos_url":"https://api.github.com/users/mohsinasif765-dotcom/repos","events_url":"https://api.github.com/users/mohsinasif765-dotcom/events{/privacy}","received_events_url":"https://api.github.com/users/mohsinasif765-dotcom/received_events","type":"User","user_view_type":"private","site_admin":false,"name":null,"company":null,"blog":"","location":null,"email":null,"hireable":null,"bio":null,"twitter_username":null,"notification_email":null,"public_repos":9,"public_gists":0,"followers":0,"following":0,"created_at":"2025-10-23T07:36:19Z","updated_at":"2025-11-04T08:42:20Z","private_gists":0,"total_private_repos":1,"owned_private_repos":1,"disk_usage":75407,"collaborators":0,"two_factor_authentication":false,"plan":{"name":"free","space":976562499,"collaborators":0,"private_repos":10000}}
+[info] 
+[info] +  Success! Logged into GitHub as mohsinasif765-dotcom 
+[info] 

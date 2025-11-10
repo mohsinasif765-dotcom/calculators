@@ -104,7 +104,7 @@ export default function GSTCalculator() {
         </div>
         <Slider
           value={[amount]}
-          onValueChange={(value) => setAmount(value[0])}
+          onValueChange={(value: number[]) => setAmount(value[0])}
           min={100}
           max={1000000}
           step={100}
@@ -153,7 +153,7 @@ export default function GSTCalculator() {
         </div>
         <Slider
           value={[gstRate]}
-          onValueChange={(value) => setGstRate(value[0])}
+          onValueChange={(value: number[]) => setGstRate(value[0])}
           min={0}
           max={28}
           step={0.25}

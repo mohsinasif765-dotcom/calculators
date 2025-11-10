@@ -1,19 +1,9 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
-import { TrendingUp, IndianRupee, DollarSign, Euro, PoundSterling } from 'lucide-react';
+import { TrendingUp } from 'lucide-react';
 import { Slider } from '../ui/slider';
 import CalculatorLayout from './CalculatorLayout';
-
-const currencies = [
-  { code: 'INR', symbol: '₹', name: 'Indian Rupee', icon: IndianRupee },
-  { code: 'USD', symbol: '$', name: 'US Dollar', icon: DollarSign },
-  { code: 'EUR', symbol: '€', name: 'Euro', icon: Euro },
-  { code: 'GBP', symbol: '£', name: 'British Pound', icon: PoundSterling },
-  { code: 'AUD', symbol: 'A$', name: 'Australian Dollar', icon: DollarSign },
-  { code: 'CAD', symbol: 'C$', name: 'Canadian Dollar', icon: DollarSign },
-  { code: 'SGD', symbol: 'S$', name: 'Singapore Dollar', icon: DollarSign },
-  { code: 'AED', symbol: 'AED', name: 'UAE Dirham', icon: DollarSign },
-];
+import CurrencySelect, { currencies } from '../ui/CurrencySelect';
 
 export default function SIPCalculator() {
   const [currency, setCurrency] = useState(currencies[0]);
@@ -55,29 +45,7 @@ export default function SIPCalculator() {
       {/* Currency Selector */}
       <div>
         <label className="block mb-3 text-slate-700">Select Currency</label>
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
-          {currencies.map((curr) => {
-            const Icon = curr.icon;
-            return (
-              <motion.button
-                key={curr.code}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={() => setCurrency(curr)}
-                className={`p-3 rounded-xl border-2 transition-all ${
-                  currency.code === curr.code
-                    ? 'border-blue-500 bg-gradient-to-br from-blue-50 to-indigo-50 shadow-md'
-                    : 'border-slate-200 hover:border-blue-300'
-                }`}
-              >
-                <div className="flex items-center gap-2">
-                  <Icon className="w-4 h-4 text-slate-600" />
-                  <span className="text-sm">{curr.code}</span>
-                </div>
-              </motion.button>
-            );
-          })}
-        </div>
+        <CurrencySelect value={currency} onChange={setCurrency} />
       </div>
 
       {/* Monthly Investment */}
@@ -90,7 +58,7 @@ export default function SIPCalculator() {
         </div>
         <Slider
           value={[monthlyInvestment]}
-          onValueChange={(value) => setMonthlyInvestment(value[0])}
+          onValueChange={(value: number[]) => setMonthlyInvestment(value[0])}
           min={500}
           max={100000}
           step={500}
@@ -112,7 +80,7 @@ export default function SIPCalculator() {
         </div>
         <Slider
           value={[expectedReturn]}
-          onValueChange={(value) => setExpectedReturn(value[0])}
+          onValueChange={(value: number[]) => setExpectedReturn(value[0])}
           min={1}
           max={30}
           step={0.5}
@@ -134,7 +102,7 @@ export default function SIPCalculator() {
         </div>
         <Slider
           value={[timePeriod]}
-          onValueChange={(value) => setTimePeriod(value[0])}
+          onValueChange={(value: number[]) => setTimePeriod(value[0])}
           min={1}
           max={40}
           step={1}

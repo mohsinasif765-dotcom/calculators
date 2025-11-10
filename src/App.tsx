@@ -13,6 +13,8 @@ import PercentageCalculator from './components/calculators/PercentageCalculator'
 import DiscountCalculator from './components/calculators/DiscountCalculator';
 import PaycheckCalculator from './components/calculators/PaycheckCalculator';
 import PregnancyCalculator from './components/calculators/PregnancyCalculator';
+import About from './components/About';
+import PrivacyPolicy from './components/PrivacyPolicy';
 
 function App() {
   return (
@@ -31,6 +33,8 @@ function App() {
           <Route path="/discount-calculator" element={<DiscountCalculator />} />
           <Route path="/paycheck-calculator" element={<PaycheckCalculator />} />
           <Route path="/pregnancy-calculator" element={<PregnancyCalculator />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/privacy" element={<PrivacyPolicy />} />
         </Routes>
         <Footer />
       </div>
@@ -85,6 +89,26 @@ function Navigation() {
               <Home className="w-4 h-4" />
               Home
             </Link>
+            <Link
+              to="/about"
+              className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-all ${
+                location.pathname === '/about'
+                  ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-lg'
+                  : 'text-slate-700 hover:bg-slate-100'
+              }`}
+            >
+              About
+            </Link>
+            <Link
+              to="/privacy"
+              className={`flex items-center gap-2 px-4 py-2 rounded-lg transition-all ${
+                location.pathname === '/privacy'
+                  ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-lg'
+                  : 'text-slate-700 hover:bg-slate-100'
+              }`}
+            >
+              Privacy
+            </Link>
             <div className="relative group">
               <button className="px-4 py-2 rounded-lg text-slate-700 hover:bg-slate-100 transition-all flex items-center gap-2">
                 Calculators
@@ -137,6 +161,20 @@ function Navigation() {
             >
               Home
             </Link>
+              <Link
+                to="/about"
+                onClick={() => setIsOpen(false)}
+                className="block px-4 py-3 rounded-lg hover:bg-slate-50 transition-all"
+              >
+                About
+              </Link>
+              <Link
+                to="/privacy"
+                onClick={() => setIsOpen(false)}
+                className="block px-4 py-3 rounded-lg hover:bg-slate-50 transition-all"
+              >
+                Privacy
+              </Link>
             <div className="pt-2 pb-1 text-xs text-slate-500 px-4">Calculators</div>
             {calculators.map((calc) => (
               <Link

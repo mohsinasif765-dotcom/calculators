@@ -136,7 +136,7 @@ export default function CalorieCalculator() {
         </div>
         <Slider
           value={[age]}
-          onValueChange={(value) => setAge(value[0])}
+          onValueChange={(value: number[]) => setAge(value[0])}
           min={15}
           max={80}
           step={1}
@@ -158,7 +158,7 @@ export default function CalorieCalculator() {
         </div>
         <Slider
           value={[weight]}
-          onValueChange={(value) => setWeight(value[0])}
+          onValueChange={(value: number[]) => setWeight(value[0])}
           min={unitSystem === 'metric' ? 30 : 66}
           max={unitSystem === 'metric' ? 200 : 440}
           step={unitSystem === 'metric' ? 0.5 : 1}
@@ -177,7 +177,7 @@ export default function CalorieCalculator() {
           </div>
           <Slider
             value={[heightCm]}
-            onValueChange={(value) => setHeightCm(value[0])}
+            onValueChange={(value: number[]) => setHeightCm(value[0])}
             min={100}
             max={250}
             step={1}
@@ -195,7 +195,7 @@ export default function CalorieCalculator() {
             </div>
             <Slider
               value={[heightFt]}
-              onValueChange={(value) => setHeightFt(value[0])}
+              onValueChange={(value: number[]) => setHeightFt(value[0])}
               min={3}
               max={8}
               step={1}
@@ -210,7 +210,7 @@ export default function CalorieCalculator() {
             </div>
             <Slider
               value={[heightIn]}
-              onValueChange={(value) => setHeightIn(value[0])}
+              onValueChange={(value: number[]) => setHeightIn(value[0])}
               min={0}
               max={11}
               step={1}

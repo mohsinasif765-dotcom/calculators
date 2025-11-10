@@ -1,19 +1,9 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'motion/react';
-import { Home, IndianRupee, DollarSign, Euro, PoundSterling } from 'lucide-react';
+import { Home } from 'lucide-react';
 import { Slider } from '../ui/slider';
 import CalculatorLayout from './CalculatorLayout';
-
-const currencies = [
-  { code: 'USD', symbol: '$', name: 'US Dollar', icon: DollarSign },
-  { code: 'INR', symbol: '₹', name: 'Indian Rupee', icon: IndianRupee },
-  { code: 'EUR', symbol: '€', name: 'Euro', icon: Euro },
-  { code: 'GBP', symbol: '£', name: 'British Pound', icon: PoundSterling },
-  { code: 'AUD', symbol: 'A$', name: 'Australian Dollar', icon: DollarSign },
-  { code: 'CAD', symbol: 'C$', name: 'Canadian Dollar', icon: DollarSign },
-  { code: 'AED', symbol: 'AED', name: 'UAE Dirham', icon: DollarSign },
-  { code: 'JPY', symbol: '¥', name: 'Japanese Yen', icon: DollarSign },
-];
+import CurrencySelect, { currencies } from '../ui/CurrencySelect';
 
 export default function MortgageCalculator() {
   const [currency, setCurrency] = useState(currencies[0]);
@@ -62,29 +52,7 @@ export default function MortgageCalculator() {
       {/* Currency Selector */}
       <div>
         <label className="block mb-3 text-slate-700">Select Currency</label>
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
-          {currencies.map((curr) => {
-            const Icon = curr.icon;
-            return (
-              <motion.button
-                key={curr.code}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={() => setCurrency(curr)}
-                className={`p-3 rounded-xl border-2 transition-all ${
-                  currency.code === curr.code
-                    ? 'border-blue-500 bg-gradient-to-br from-blue-50 to-cyan-50 shadow-md'
-                    : 'border-slate-200 hover:border-blue-300'
-                }`}
-              >
-                <div className="flex items-center gap-2">
-                  <Icon className="w-4 h-4 text-slate-600" />
-                  <span className="text-sm">{curr.code}</span>
-                </div>
-              </motion.button>
-            );
-          })}
-        </div>
+        <CurrencySelect value={currency} onChange={setCurrency} />
       </div>
 
       {/* Home Price */}
@@ -97,7 +65,7 @@ export default function MortgageCalculator() {
         </div>
         <Slider
           value={[loanAmount]}
-          onValueChange={(value) => setLoanAmount(value[0])}
+          onValueChange={(value: number[]) => setLoanAmount(value[0])}
           min={50000}
           max={2000000}
           step={10000}
@@ -119,7 +87,7 @@ export default function MortgageCalculator() {
         </div>
         <Slider
           value={[downPayment]}
-          onValueChange={(value) => setDownPayment(value[0])}
+          onValueChange={(value: number[]) => setDownPayment(value[0])}
           min={0}
           max={loanAmount * 0.5}
           step={5000}
@@ -141,7 +109,7 @@ export default function MortgageCalculator() {
         </div>
         <Slider
           value={[interestRate]}
-          onValueChange={(value) => setInterestRate(value[0])}
+          onValueChange={(value: number[]) => setInterestRate(value[0])}
           min={1}
           max={15}
           step={0.25}
@@ -163,7 +131,7 @@ export default function MortgageCalculator() {
         </div>
         <Slider
           value={[loanTerm]}
-          onValueChange={(value) => setLoanTerm(value[0])}
+          onValueChange={(value: number[]) => setLoanTerm(value[0])}
           min={5}
           max={30}
           step={5}

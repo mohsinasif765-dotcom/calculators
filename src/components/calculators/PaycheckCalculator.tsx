@@ -114,7 +114,7 @@ export default function PaycheckCalculator() {
         </div>
         <Slider
           value={[annualSalary]}
-          onValueChange={(value) => setAnnualSalary(value[0])}
+          onValueChange={(value: number[]) => setAnnualSalary(value[0])}
           min={300000}
           max={5000000}
           step={50000}
@@ -137,7 +137,7 @@ export default function PaycheckCalculator() {
           </div>
           <Slider
             value={[deductions]}
-            onValueChange={(value) => setDeductions(value[0])}
+              onValueChange={(value: number[]) => setDeductions(value[0])}
             min={0}
             max={200000}
             step={10000}
